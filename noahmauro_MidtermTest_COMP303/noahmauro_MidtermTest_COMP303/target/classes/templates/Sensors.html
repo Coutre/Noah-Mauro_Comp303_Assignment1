@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Sensors</title>
+</head>
+<body>
+    <h1>Sensor List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Pin</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sensor : ${sensors}">
+            <td th:text="${sensor.sensorID}"></td>
+            <td th:text="${sensor.sensorName}"></td>
+            <td th:text="${sensor.sensorType}"></td>
+            <td th:text="${sensor.sensorPin}"></td>
+            <td th:text="${sensor.sensorStatus}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" th:onclick="|window.location.href='@{/sensors/count}'|">Count</button>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Sensor</title>
+</head>
+<body>
+<h1>Add a New Sensor</h1>
+    <form action="#" th:action="@{/sensors/add}" th:object="${sensor}" method="post">
+
+        <label for="sensorName">Sensor Name:</label>
+        <input type="text" id="sensorName" name="sensorName" th:field="*{sensorName}" required>
+        <br><br>
+
+
+        <label for="sensorType">Sensor Type:</label>
+        <input type="text" id="sensorType" name="sensorType" th:field="*{sensorType}" required>
+        <br><br>
+
+
+        <label for="sensorPin">Sensor Pin:</label>
+        <input type="number" id="sensorPin" name="sensorPin" th:field="*{sensorPin}" required min="0" max="1000">
+        <br><br>
+
+
+        <label for="sensorLocation">Sensor Location (Optional):</label>
+        <input type="text" id="sensorLocation" name="sensorLocation" th:field="*{sensorLocation}">
+        <br><br>
+
+
+        <label for="sensorStatus">Sensor Status:</label>
+        <select id="sensorStatus" name="sensorStatus" th:field="*{sensorStatus}" required>
+            <option value="ON">ON</option>
+            <option value="OFF">OFF</option>
+        </select>
+        <br><br>
+
+
+        <button type="submit">Add Sensor</button>
+    </form>
+</body>
+</html>
