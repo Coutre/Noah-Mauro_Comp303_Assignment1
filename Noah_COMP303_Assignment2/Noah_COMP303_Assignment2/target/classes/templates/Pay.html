@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Program Details</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        .details-container {
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 20px;
+            text-align: left;
+        }
+
+        .form-container {
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/Program">Programs</a></li>
+        <li><a href="/Profile">Profile</a></li>
+        <li><a href="/Logout">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Program Details</h1>
+
+<div class="details-container">
+    <h2 th:text="${program.programName}">Program Name</h2>
+    <p><strong>Program Code:</strong> <span th:text="${program.programCode}">Program Code</span></p>
+    <p><strong>Duration:</strong> <span th:text="${program.duration}">Duration</span> months</p>
+    <p><strong>Fee:</strong> $<span th:text="${program.fee}">Fee</span></p>
+    <p><strong>Professor:</strong> <span th:text="${program.professor}">Professor</span></p>
+</div>
+
+<div class="form-container">
+    <form th:action="@{/TransactionComplete}" th:method="post">
+        <label for="cardNum">Card Number:</label>
+        <input id="cardNum" type="text" required/>
+
+        <label for="cardDate">Expiry Date</label>
+        <input id="cardDate" type="text" required/>
+
+        <label for="cardSecurity">CVV</label>
+        <input id="cardSecurity" type="text" required/>
+
+        <input type="hidden" name="programCode" th:value="${program.programCode}">
+        <input type="hidden" name="studentId" th:value="${student.studentId}">
+        <input type="hidden" name="amountPaid" th:value="${program.fee}">
+        <button type="submit">Pay</button>
+    </form>
+</div>
+</body>
+</html>

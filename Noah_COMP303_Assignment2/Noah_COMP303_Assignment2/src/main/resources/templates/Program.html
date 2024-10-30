@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Program Selection</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/Program" >Programs</a></li>
+            <li><a href="/Profile">Profile</a></li>
+            <li><a href="/Logout">Logout</a></li>
+        </ul>
+    </nav>
+    <table>
+        <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Introduction to Programming</td>
+            <td>Learn the basics of programming with Python.</td>
+            <td>
+                <form action="#" th:action="@{/Pay}" method="post">
+                    <input type="hidden" name="courseName" value="Computer Science">
+                    <button type="submit">Select</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Web Development</td>
+            <td>Build responsive websites using HTML, CSS, and JavaScript.</td>
+            <td>
+                <form action="#" th:action="@{/Pay}" method="post">
+                    <input type="hidden" name="courseName" value="Web Development">
+                    <button type="submit">Select</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Data Science</td>
+            <td>Analyze data and build machine learning models.</td>
+            <td>
+                <form action="#" th:action="@{/Pay}" method="post">
+                    <input type="hidden" name="courseName" value="Data Science">
+                    <button type="submit">Select</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile App Development</td>
+            <td>Create mobile applications for Android and iOS.</td>
+            <td>
+                <form action="#" th:action="@{/Pay}" method="post">
+                    <input type="hidden" name="courseName" value="Mobile App Development">
+                    <button type="submit">Select</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Cybersecurity Fundamentals</td>
+            <td>Learn about securing systems and networks.</td>
+            <td>
+                <form action="#" th:action="@{/Pay}" method="post">
+                    <input type="hidden" name="courseName" value="Cybersecurity">
+                    <button type="submit">Select</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
